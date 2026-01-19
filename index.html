@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Renato Ferreira — 18 anos</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Renato Ferreira — 18 anos</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0b0b0b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* VÍDEO */
+#video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  background: black;
+}
+
+/* CARTA */
+#letter {
+  display: none;
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: #0b0b0b;
+}
+
+.letter-box {
+  background: #fdfaf5;
+  color: #111;
+  max-width: 680px;
+  margin: auto;
+  padding: 36px 28px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+}
+
+.letter-box h1 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.letter-box p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: left;
+}
+</style>
 </head>
 
-<body class="no-scroll">
+<body>
 
 <!-- VÍDEO -->
-<section class="hero">
-  <video id="video" controls playsinline webkit-playsinline>
-    <source src="video.mp4" type="video/mp4">
-    O teu navegador não suporta vídeo.
-  </video>
-  <div class="hint">Assiste até ao fim</div>
-</section>
+<video id="video" controls playsinline webkit-playsinline preload="auto">
+  <source src="video.mp4" type="video/mp4">
+  O teu navegador não suporta vídeo.
+</video>
 
 <!-- CARTA -->
-<section class="letter-section" id="letter">
+<section id="letter">
   <div class="letter-box">
     <h1>Feliz 18 anos 🎉</h1>
     <p>
       Such a long time man.<br><br>
 
-      Não são só anos de amizade,  
-      são capítulos de vida que vivemos juntos.<br><br>
+      Não são apenas anos de amizade,  
+      são momentos, erros, vitórias e crescimento juntos.<br><br>
 
-      O que construímos não foi só ideias ou projetos,  
-      foi lealdade, confiança e irmandade.<br><br>
-
-      O futuro é grande —  
-      e eu sei que vamos conquistá-lo juntos.<br><br>
+      O que construímos não tem preço  
+      e o futuro promete ainda mais.<br><br>
 
       Feliz menos um ano de vida.<br><br>
 
@@ -41,6 +82,17 @@
   </div>
 </section>
 
-<script src="script.js"></script>
+<script>
+const video = document.getElementById("video");
+const letter = document.getElementById("letter");
+
+video.addEventListener("ended", () => {
+  document.body.style.overflow = "auto";
+  letter.style.display = "block";
+  letter.scrollIntoView({ behavior: "smooth" });
+});
+</script>
+
 </body>
 </html>
+
