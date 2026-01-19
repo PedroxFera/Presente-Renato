@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #0b0b0b;
+  color: white;
+}
+
+/* VIDEO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  width: 90%;
+  max-width: 800px;
+  border-radius: 14px;
+}
+
+.hint {
+  margin-top: 15px;
+  opacity: 0.7;
+}
+
+/* DATA */
+.date-section {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+  background: #111;
+}
+
+.date {
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.date small {
+  font-size: 20px;
+}
+
+/* ENVELOPE */
+.envelope-section {
+  display: none;
+  min-height: 100vh;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  background: #d6d6d6;
+  cursor: pointer;
+}
+
+.flap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #c0c0c0;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  transform-origin: top;
+  transition: transform 1s ease;
+}
+
+.letter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 1s ease;
+  color: black;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .date {
+    font-size: 48px;
+  }
+
+  .envelope {
+    width: 280px;
+  }
+}
+
+/* SAFARI iPHONE FIX */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    min-height: 100svh;
+  }
+}
